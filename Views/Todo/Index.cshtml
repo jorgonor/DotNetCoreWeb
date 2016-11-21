@@ -1,0 +1,43 @@
+@model IEnumerable<WebApplication.Models.Todo>
+
+@{
+    string emptySymbol = "-";
+}
+<a asp-action="Add" >Add Todo</a>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Comments</td>
+            <td>Due Date</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TodoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @if(!String.IsNullOrEmpty(item.Comments)) {
+                    @Html.DisplayFor(modelItem => item.Comments)
+                } else {
+                    @emptySymbol
+                }
+            </td>
+            <td>
+                @if (item.DueDate.HasValue) {
+                    @Html.DisplayFor(modelItem => item.DueDate)
+                } else {
+                    @emptySymbol
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

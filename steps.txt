@@ -1,0 +1,15 @@
+* Install https://www.microsoft.com/net/core
+* Install Visual Studio Code https://code.visualstudio.com/
+* Create project (suggest installing a different ef package or .net core 1.0 to run ef database.)
+    - mkdir DotNetCoreWeb && cd DotNetCoreWeb
+    - dotnet new -t web 
+    - dotnet restore
+    - (install client-side dependencies and js minification tools) Install Node.js, bower install && npm install
+    - dotnet ef database update
+    - dotnet run
+* Add a Todo class
+    - Add Models\Todo.cs
+    - Add DbSet<Todo> to ApplicationContext
+    - run "dotnet ef migrations add Todo1"
+    - run "dotnet ef database update"
+* Add a TodoController
