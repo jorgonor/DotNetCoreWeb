@@ -17,3 +17,9 @@ INSTALLATION SETUP WITH SQLITE
 
 MIGRATING TO MYSQL WITH POMELO DRIVER
 * Regenerate migrations (at least Todo1).
+
+PUBLISHING IN LINUX
+* dotnet publish -c Release
+* install nginx
+* follow https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
+* set WorkingDirectory in systemd.
