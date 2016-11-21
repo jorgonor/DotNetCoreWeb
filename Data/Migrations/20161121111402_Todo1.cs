@@ -17,7 +17,7 @@ namespace WebApplication.Data.Migrations
                 columns: table => new
                 {
                     TodoId = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("MySql:ValueGeneratedOnAdd", true),
                     Comments = table.Column<string>(nullable: true),
                     DueDate = table.Column<DateTime>(nullable: true),
                     Title = table.Column<string>(nullable: false)

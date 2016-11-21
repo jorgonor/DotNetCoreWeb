@@ -1,3 +1,4 @@
+INSTALLATION SETUP WITH SQLITE
 * Install https://www.microsoft.com/net/core
 * Install Visual Studio Code https://code.visualstudio.com/
 * Create project (suggest installing a different ef package or .net core 1.0 to run ef database.)
@@ -13,3 +14,6 @@
     - run "dotnet ef migrations add Todo1"
     - run "dotnet ef database update"
 * Add a TodoController
+
+MIGRATING TO MYSQL WITH POMELO DRIVER
+* Regenerate migrations (at least Todo1).

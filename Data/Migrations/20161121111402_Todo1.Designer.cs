@@ -8,7 +8,7 @@ using WebApplication.Data;
 namespace WebApplication.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20161121104857_Todo1")]
+    [Migration("20161121111402_Todo1")]
     partial class Todo1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
