@@ -1,39 +1,29 @@
-# Welcome to ASP.NET Core
+# Step-by-step .NET Core on Linux
 
-We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
+These are the simple steps followed to make a pet project with .NET Core on Linux.
 
-You've created a new ASP.NET Core project. [Learn what's new](https://go.microsoft.com/fwlink/?LinkId=518016)
+## INSTALLATION SETUP WITH SQLITE
+* Install https://www.microsoft.com/net/core
+* Install Visual Studio Code https://code.visualstudio.com/
+* Create project (suggest installing a different ef package or .net core 1.0 to run ef database.)
+    - mkdir DotNetCoreWeb && cd DotNetCoreWeb
+    - dotnet new -t web 
+    - dotnet restore
+    - (install client-side dependencies and js minification tools) Install Node.js, bower install && npm install
+    - dotnet ef database update
+    - dotnet run
+* Add a Todo class
+    - Add Models\Todo.cs
+    - Add DbSet<Todo> to ApplicationContext
+    - run "dotnet ef migrations add Todo1"
+    - run "dotnet ef database update"
+* Add a TodoController
 
-## This application consists of:
+## MIGRATING TO MYSQL WITH POMELO DRIVER
+* Regenerate migrations (at least Todo1).
 
-*   Sample pages using ASP.NET Core MVC
-*   [Gulp](https://go.microsoft.com/fwlink/?LinkId=518007) and [Bower](https://go.microsoft.com/fwlink/?LinkId=518004) for managing client-side libraries
-*   Theming using [Bootstrap](https://go.microsoft.com/fwlink/?LinkID=398939)
-
-## How to
-
-*   [Add a Controller and View](https://go.microsoft.com/fwlink/?LinkID=398600)
-*   [Add an appsetting in config and access it in app.](https://go.microsoft.com/fwlink/?LinkID=699562)
-*   [Manage User Secrets using Secret Manager.](https://go.microsoft.com/fwlink/?LinkId=699315)
-*   [Use logging to log a message.](https://go.microsoft.com/fwlink/?LinkId=699316)
-*   [Add packages using NuGet.](https://go.microsoft.com/fwlink/?LinkId=699317)
-*   [Add client packages using Bower.](https://go.microsoft.com/fwlink/?LinkId=699318)
-*   [Target development, staging or production environment.](https://go.microsoft.com/fwlink/?LinkId=699319)
-
-## Overview
-
-*   [Conceptual overview of what is ASP.NET Core](https://go.microsoft.com/fwlink/?LinkId=518008)
-*   [Fundamentals of ASP.NET Core such as Startup and middleware.](https://go.microsoft.com/fwlink/?LinkId=699320)
-*   [Working with Data](https://go.microsoft.com/fwlink/?LinkId=398602)
-*   [Security](https://go.microsoft.com/fwlink/?LinkId=398603)
-*   [Client side development](https://go.microsoft.com/fwlink/?LinkID=699321)
-*   [Develop on different platforms](https://go.microsoft.com/fwlink/?LinkID=699322)
-*   [Read more on the documentation site](https://go.microsoft.com/fwlink/?LinkID=699323)
-
-## Run & Deploy
-
-*   [Run your app](https://go.microsoft.com/fwlink/?LinkID=517851)
-*   [Run tools such as EF migrations and more](https://go.microsoft.com/fwlink/?LinkID=517853)
-*   [Publish to Microsoft Azure Web Apps](https://go.microsoft.com/fwlink/?LinkID=398609)
-
-We would love to hear your [feedback](https://go.microsoft.com/fwlink/?LinkId=518015)
+## PUBLISHING IN LINUX
+* dotnet publish -c Release
+* install nginx
+* follow https://docs.microsoft.com/en-us/aspnet/core/publishing/linuxproduction
+* set WorkingDirectory in systemd.
